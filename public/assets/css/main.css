@@ -12585,10 +12585,6 @@ body {
   min-height: 400px;
 }
 
-.center-canvas {
-  margin-top: -350px;
-}
-
 .font-huge {
   transform: scale(2);
   -webkit-text-fill-color: transparent;
