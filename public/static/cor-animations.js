@@ -61,7 +61,7 @@ window.addEventListener('load', function() {
             this.centerX = this.width * 0.5;
             this.centerY = this.height * 0.5;
             this.x = this.centerX - this.image.width * 0.5
-            this.y = 125
+            this.y = 100
             this.gap = 10;
             this.mouse = {
                 radius: 2500,
@@ -106,7 +106,7 @@ window.addEventListener('load', function() {
             this.centerX = this.width * 0.5;
             this.centerY = this.height * 0.5;
             this.x = this.centerX - this.image.width * 0.5
-            this.y = this.centerY - this.image.height * 0.5
+            this.y = 100
             this.init(context)
         }
         update(distance) {
