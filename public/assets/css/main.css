@@ -12581,9 +12581,12 @@ body {
   height: 100vh;
 }
 
+.canvas-spacer {
+  min-height: 425px;
+}
+
 .center-canvas {
-  margin-top: -25vh;
-  margin-bottom: calc(-20vh - 10px);
+  margin-top: -350px;
 }
 
 .font-huge {
@@ -12603,6 +12606,11 @@ body {
   min-height: calc(1.825rem + 0.9vw);
 }
 
+@media (min-width: 600) {
+  .typed-text {
+    margin-top: 25px;
+  }
+}
 @media (min-width: 1200px) {
   .typed-text {
     min-height: 2.5rem;
