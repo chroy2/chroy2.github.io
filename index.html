@@ -1,35 +1,147 @@
 <!DOCTYPE html>
-
-<html lang="en" data-bs-theme="light">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-    <link rel="shortcut icon" href="#">
-    <script src="public/static/jquery-3.7.1.slim.js"></script>
-    <link href="public/assets/css/main.css" rel="stylesheet" />
+    <title>Troy Witmer</title>
+    <meta name="description" content="Troy Witmer — full-stack engineer in Philadelphia building secure healthcare software. Also into photography, guitar, drawing, collage, and making websites for friends.">
+    <meta name="color-scheme" content="dark light">
+    <meta property="og:title" content="Troy Witmer">
+    <meta property="og:description" content="Full-stack engineer in Philadelphia.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chroy2.github.io/">
+    <link rel="icon" href="assets/portrait.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Apply a saved theme before first paint to avoid a flash.
+        try {
+            const theme = localStorage.getItem("theme");
+            if (theme) document.documentElement.dataset.theme = theme;
+        } catch (e) {}
+    </script>
+    <script src="main.js" defer></script>
 </head>
 
 <body>
-    <div class="d-flex flex-column align-items-center pt-5">
-        <a id="color-mode-btn" class="btn mt-2">Mode</a>
-        <h1 class="display-1 mt-5 mb-n5 display-font-spacing font-huge">WELCOME</h1>
-        <canvas id="profile-canvas" class="position-absolute center-canvas z-n1"></canvas>
-        <img id="profile-image" class="rounded-5 d-none" height="480" width="480"
-            src="public/assets/images/ProfilePixel.svg" alt="Me" />
-        <div class="canvas-spacer"></div>
-        <h3 class="display-5 nametag mb-n4">Im Troy</h3>
-        <h2 class="typed-text" data-text=" " data-text-array="Design,Develop,Create"></h2>
-        <div id="links" class="mt-3">
-            <a id="github" class="btn" href="https://github.com/chroy2" target=”_blank”>github</a>
-            <a id="linkedin" class="btn" href="https://www.linkedin.com/in/troywitmer30/" target=”_blank”>linkedin</a>
-            <a id="github" class="btn" href="mailto:chroy.dev@proton.me" target=”_blank”>email</a>
+    <div class="term">
+        <div class="titlebar">
+            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="title">troy@philly: ~</span>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle light and dark theme">theme</button>
         </div>
+
+        <main>
+            <header class="hero">
+                <figure class="portrait" id="portrait">
+                    <img src="assets/portrait.svg" width="256" height="256" alt="Pixel-art portrait of Troy">
+                </figure>
+                <div class="hero-text">
+                    <p class="dim" id="last-login">Last login: just now on ttys000</p>
+                    <h1>Troy Witmer</h1>
+                    <p class="role">full-stack engineer <span class="dim">·</span> <span class="nowrap">philadelphia, pa</span></p>
+                    <nav class="links" aria-label="Contact">
+                        <a href="https://github.com/chroy2">github</a>
+                        <a href="https://www.linkedin.com/in/troywitmer30/">linkedin</a>
+                        <a href="mailto:chroy.dev@proton.me">email</a>
+                        <a href="assets/troy-witmer-resume.pdf">resume.pdf</a>
+                    </nav>
+                </div>
+            </header>
+
+            <section id="about" aria-labelledby="about-cmd">
+                <h2 class="prompt" id="about-cmd"><span class="ps1" aria-hidden="true">~$ </span>whoami</h2>
+                <div class="out">
+                    <p>I'm Troy, a full-stack engineer at <strong>Cortucent Security</strong>, where I build and
+                        secure healthcare software that handles protected health information.</p>
+                    <p>Off the clock I'm usually taking photos, playing guitar, drawing, making collages, or
+                        building websites for friends. I've also dabbled in lower-level projects in Zig and Rust, listed below.</p>
+                </div>
+            </section>
+
+            <section id="work" aria-labelledby="work-cmd">
+                <h2 class="prompt" id="work-cmd"><span class="ps1" aria-hidden="true">~$ </span>cat work.log</h2>
+                <div class="out">
+                    <div class="entry">
+                        <p class="entry-head"><strong>Full Stack Engineer</strong> @ Cortucent Security
+                            <span class="dim">may 2024 – present</span></p>
+                        <ul>
+                            <li>Most senior engineer; lead architecture and code review for healthcare revenue
+                                cycle platforms under HIPAA and HITRUST.</li>
+                            <li>Build LLM document extraction, eligibility prediction, and ETL pipelines.</li>
+                            <li>Moved 1997-era legacy systems onto FastAPI, React, and PostgreSQL, deployed on
+                                Azure and Docker.</li>
+                            <li>Built a Pub/Sub notification system on Twilio and Azure Communication Services,
+                                plus Grafana observability.</li>
+                        </ul>
+                    </div>
+                    <div class="entry">
+                        <p class="entry-head"><strong>BS Computer Science</strong> @ Temple University
+                            <span class="dim">2021 – 2025</span></p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" aria-labelledby="projects-cmd">
+                <h2 class="prompt" id="projects-cmd"><span class="ps1" aria-hidden="true">~$ </span>ls -l projects/</h2>
+                <div class="out">
+                    <ul class="ls">
+                        <li>
+                            <a href="https://github.com/chroy2/sand-art">sand-art/</a>
+                            <span class="lang">zig</span>
+                            <span class="desc">Real-time sand physics with Raylib.</span>
+                        </li>
+                        <li>
+                            <a href="https://github.com/chroy2/moxi">moxi/</a>
+                            <span class="lang">rust</span>
+                            <span class="desc">Air quality, temperature, and humidity monitor on a micro:bit.</span>
+                        </li>
+                        <li>
+                            <span class="name">biogenie-rag/</span>
+                            <span class="lang">python</span>
+                            <span class="desc">RAG search over biology papers: Flask, React, PGVector, self-hosted Ollama.</span>
+                        </li>
+                        <li>
+                            <span class="name">hecto/</span>
+                            <span class="lang">rust</span>
+                            <span class="desc">A terminal text editor, built from scratch.</span>
+                        </li>
+                        <li>
+                            <a href="https://github.com/chroy2/ghostty-theme-sync.nvim">ghostty-theme-sync.nvim/</a>
+                            <span class="lang">lua</span>
+                            <span class="desc">Keeps Neovim and Ghostty themes in sync.</span>
+                        </li>
+                        <li>
+                            <a href="https://github.com/chroy2/dotfiles">dotfiles/</a>
+                            <span class="lang">lua</span>
+                            <span class="desc">Editor and shell config.</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="hobbies" aria-labelledby="hobbies-cmd">
+                <h2 class="prompt" id="hobbies-cmd"><span class="ps1" aria-hidden="true">~$ </span>cat hobbies.txt</h2>
+                <div class="out">
+                    <p>photography <span class="dim">·</span> guitar <span class="dim">·</span> drawing
+                        <span class="dim">·</span> collage <span class="dim">·</span> making websites for friends
+                        <span class="dim">·</span> compiling the linux kernel</p>
+                </div>
+            </section>
+
+            <section id="shell" class="shell" aria-label="Interactive shell" hidden>
+                <div id="shell-output" class="shell-output" aria-live="polite"></div>
+                <form id="shell-form" class="prompt shell-line">
+                    <label for="shell-input" class="ps1">~$ </label>
+                    <input id="shell-input" type="text" autocomplete="off" autocapitalize="off"
+                        spellcheck="false" enterkeyhint="send" placeholder="type help">
+                </form>
+            </section>
+        </main>
     </div>
-    <script src="public/static/cor-buttons.js"></script>
-    <script src="public/static/text-typing.js"></script>
-    <script src="public/static/cor-animations.js"></script>
 </body>
 
 </html>
