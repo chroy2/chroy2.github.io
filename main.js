@@ -85,7 +85,11 @@ function startPortrait() {
 
   const canvas = document.createElement("canvas");
   canvas.setAttribute("aria-hidden", "true");
-  canvas.style.cssText = `position:absolute;inset:${(-PAD / GRID) * 100}%;width:auto;height:auto;pointer-events:none`;
+  // Size explicitly: width/height auto would fall back to the backing store's
+  // device-pixel size and render at devicePixelRatio times too large.
+  const offset = (-PAD / GRID) * 100;
+  const extent = (SPAN / GRID) * 100;
+  canvas.style.cssText = `position:absolute;left:${offset}%;top:${offset}%;width:${extent}%;height:${extent}%;pointer-events:none`;
   figure.style.position = "relative";
   figure.appendChild(canvas);
   img.style.visibility = "hidden";
